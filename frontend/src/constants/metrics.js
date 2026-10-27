@@ -1,0 +1,110 @@
+export const WATER_METRICS = [
+  {
+    id: "pH",
+    label: "pH Level",
+    unit: "pH",
+    min: 0,
+    max: 14,
+    step: 0.1,
+    whoSafe: "6.5 - 8.5",
+    description: "Evaluates acid-base balance. Natural water ranges from 6.5 to 8.5.",
+    isSafeRange: (v) => v >= 6.5 && v <= 8.5,
+    default: 7.2
+  },
+  {
+    id: "Hardness",
+    label: "Hardness",
+    unit: "mg/L",
+    min: 50,
+    max: 350,
+    step: 1,
+    whoSafe: "150 - 300 mg/L",
+    description: "Concentration of calcium and magnesium salts in water.",
+    isSafeRange: (v) => v >= 100 && v <= 300,
+    default: 196.0
+  },
+  {
+    id: "Solids",
+    label: "Total Dissolved Solids (TDS)",
+    unit: "ppm",
+    min: 1000,
+    max: 50000,
+    step: 100,
+    whoSafe: "< 1000 ppm",
+    description: "Total amount of mobile charged ions, minerals, and salts dissolved.",
+    isSafeRange: (v) => v <= 10000,
+    default: 21000.0
+  },
+  {
+    id: "Chloramines",
+    label: "Chloramines",
+    unit: "ppm",
+    min: 0,
+    max: 15,
+    step: 0.1,
+    whoSafe: "< 4.0 ppm",
+    description: "Chlorine and ammonia disinfectants used to treat drinking water.",
+    isSafeRange: (v) => v <= 8.0,
+    default: 7.1
+  },
+  {
+    id: "Sulfate",
+    label: "Sulfate",
+    unit: "mg/L",
+    min: 50,
+    max: 500,
+    step: 1,
+    whoSafe: "< 250 mg/L",
+    description: "Naturally occurring mineral; high levels can cause laxative effects.",
+    isSafeRange: (v) => v <= 350,
+    default: 333.0
+  },
+  {
+    id: "Conductivity",
+    label: "Conductivity",
+    unit: "μS/cm",
+    min: 100,
+    max: 800,
+    step: 1,
+    whoSafe: "< 400 μS/cm",
+    description: "Ability of water to pass electric flow; indicates dissolved ionic chemicals.",
+    isSafeRange: (v) => v <= 500,
+    default: 426.0
+  },
+  {
+    id: "Organic_carbon",
+    label: "Organic Carbon",
+    unit: "ppm",
+    min: 2,
+    max: 30,
+    step: 0.1,
+    whoSafe: "< 4.0 ppm",
+    description: "Total Organic Carbon (TOC) measuring decaying natural organic matter.",
+    isSafeRange: (v) => v <= 15.0,
+    default: 14.2
+  },
+  {
+    id: "Trihalomethanes",
+    label: "Trihalomethanes",
+    unit: "μg/L",
+    min: 0,
+    max: 130,
+    step: 0.5,
+    whoSafe: "< 80 μg/L",
+    description: "Byproducts formed when chlorine reacts with organic matter.",
+    isSafeRange: (v) => v <= 80.0,
+    default: 66.4
+  },
+  {
+    id: "Turbidity",
+    label: "Turbidity",
+    unit: "NTU",
+    min: 0,
+    max: 10,
+    step: 0.1,
+    whoSafe: "< 5.0 NTU",
+    description: "Cloudiness caused by suspended particles; high levels harbor pathogens.",
+    isSafeRange: (v) => v <= 5.0,
+    default: 3.9
+  }
+];
