@@ -24,21 +24,21 @@ app.add_middleware(
 )
 
 # Base directories to search for model & scaler artifacts
-BASE_DIR = Path(r"C:\Users\Mohammad Aqib\OneDrive\Desktop\archive")
 LOCAL_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = LOCAL_DIR.parent
+BASE_DIR = Path(r"C:\Users\Mohammad Aqib\OneDrive\Desktop\archive")
 
 def resolve_path(filename: str) -> Path:
-    """Locate artifact either in specified Windows directory, current file's directory, or parent."""
+    """Locate artifact portably in local directory, project root, or original directory."""
     candidates = [
-        BASE_DIR / filename,
         LOCAL_DIR / filename,
-        LOCAL_DIR.parent / filename,
+        PROJECT_ROOT / filename,
+        BASE_DIR / filename,
     ]
     for candidate in candidates:
         if candidate.exists():
             return candidate
-    # Default to BASE_DIR if not found yet (will raise error upon load)
-    return BASE_DIR / filename
+    return LOCAL_DIR / filename
 
 MODEL_PATH = resolve_path("water_quality_model.pkl")
 SCALER_PATH = resolve_path("scaler.pkl")
